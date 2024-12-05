@@ -1,38 +1,154 @@
-.App {
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #ffffff;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 350px;
+}
+
+.weather {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Search Section */
+.search {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 15px;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search button {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.search button:hover {
+  transform: scale(1.1);
+}
+
+.search button img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Error Handling */
+.error {
+  color: #ff6b6b;
+  margin-bottom: 15px;
+  height: 20px;
+  text-align: center;
+}
+
+/* Weather Information */
+.winfo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.winfo img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.winfo h1 {
+  font-size: 4rem;
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+.winfo h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+/* Details Section */
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.col img {
+  width: 40px;
+  height: 40px;
+}
+
+.humidity, .wind {
+  text-align: left;
+}
+
+.col p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.col p:first-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .container {
+    width: 95%;
+    margin: 0 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .details {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .col {
+    margin: 0;
   }
 }
