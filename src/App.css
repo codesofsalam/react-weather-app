@@ -1,6 +1,5 @@
-/* Global Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   justify-content: center;
@@ -24,7 +23,6 @@ body {
   text-align: center;
 }
 
-/* Search Section */
 .search {
   display: flex;
   align-items: center;
@@ -65,7 +63,6 @@ body {
   height: 25px;
 }
 
-/* Error Handling */
 .error {
   color: #ff6b6b;
   margin-bottom: 15px;
@@ -73,7 +70,6 @@ body {
   text-align: center;
 }
 
-/* Weather Information */
 .winfo {
   display: flex;
   flex-direction: column;
@@ -98,7 +94,6 @@ body {
   font-weight: 400;
 }
 
-/* Details Section */
 .details {
   display: flex;
   justify-content: space-between;
@@ -122,7 +117,8 @@ body {
   height: 40px;
 }
 
-.humidity, .wind {
+.humidity,
+.wind {
   text-align: left;
 }
 
@@ -136,7 +132,6 @@ body {
   font-weight: bold;
 }
 
-/* Responsive Design */
 @media (max-width: 400px) {
   .container {
     width: 95%;

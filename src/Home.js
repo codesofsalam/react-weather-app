@@ -1,72 +1,75 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './App.css';
+import "./App.css";
 
 const Home = () => {
   const [data, setData] = useState({
     celcius: 10,
-    name: "London",
+    name: "Karachi",
     humidity: 10,
     speed: 2,
-    image:'/images/clouds.png'
+    image: "/images/clouds.png",
   });
 
-  const [name,setName]=useState('');
-  const [error, setError]=useState('');
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
-
-  const handleClick=()=>{
-    if (name!==''){
-        const apiURL =
-        `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=a0ec1e2af93c5dac724e17c0a288b00a&&units=metric`;
+  const handleClick = () => {
+    if (name !== "") {
+      const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=a0ec1e2af93c5dac724e17c0a288b00a&&units=metric`;
       axios
         .get(apiURL)
-        .then(res => {
-         let imagePath='';
-         if(res.data.weather[0].main==="Clouds"){
-            imagePath="/images/clouds.png"
-         } else if(res.data.weather[0].main==="Clear"){
-            imagePath="/images/clear.png"
-         } else if(res.data.weather[0].main==="Rain"){
-            imagePath="/images/rain.png"
-         } else if(res.data.weather[0].main==="Drizzle"){
-            imagePath="/images/drizzle.png"
-         } else if(res.data.weather[0].main==="Mist"){
-            imagePath="/images/mist.png"
-         } else {
-             imagePath='/images/weather.png'
-         }
+        .then((res) => {
+          let imagePath = "";
+          if (res.data.weather[0].main === "Clouds") {
+            imagePath = "/images/clouds.png";
+          } else if (res.data.weather[0].main === "Clear") {
+            imagePath = "/images/clear.png";
+          } else if (res.data.weather[0].main === "Rain") {
+            imagePath = "/images/rain.png";
+          } else if (res.data.weather[0].main === "Drizzle") {
+            imagePath = "/images/drizzle.png";
+          } else if (res.data.weather[0].main === "Mist") {
+            imagePath = "/images/mist.png";
+          } else {
+            imagePath = "/images/weather.png";
+          }
           setData({
             ...data,
             celcius: res.data.main.temp,
             name: res.data.name,
             humidity: res.data.main.humidity,
             speed: res.data.wind.speed,
-            image: imagePath
+            image: imagePath,
           });
-          setError('');
+          setError("");
         })
-        .catch(err => {
-            if(err.response.status===404){
-                setError("Invalid City Name!");
-            } else{
-                setError('');
-            }
-        console.log(err)
-    });}
-  }
+        .catch((err) => {
+          if (err.response.status === 404) {
+            setError("Invalid City Name!");
+          } else {
+            setError("");
+          }
+          console.log(err);
+        });
+    }
+  };
   return (
     <div className="container">
       <div className="weather">
         <div className="search">
-          <input type="text" placeholder="Enter City Name" onChange={e=>setName(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Enter City Name"
+            onChange={(e) => setName(e.target.value)}
+          />
           <button>
             <img src="/images/searchicon.png" alt="" onClick={handleClick} />
           </button>
         </div>
-<div className="error">
-<p>{error}</p>
-</div>
+        <div className="error">
+          <p>{error}</p>
+        </div>
 
         <div className="winfo">
           <img src={data.image} alt="" />
