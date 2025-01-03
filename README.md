@@ -2,6 +2,11 @@
 
 A real-time weather app which provides up-to-date weather information using the OpenWeather API.
 
+### Prerequisites
+
+- Node.js
+- npm
+  
 ## Features
 
 - Real-time weather updates
